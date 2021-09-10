@@ -1,17 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import "./tailwind.generated.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Homepage } from "./pages/Homepage/Homepage";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Switch>
-        <Route path="/">
-          <h1>Hi</h1>
-        </Route>
-      </Switch>
+      <div className="flex flex-col w-full h-full">
+        <Switch>
+          <Route path="/">
+            <Homepage />
+          </Route>
+        </Switch>
+      </div>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
