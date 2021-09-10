@@ -5,12 +5,16 @@ import "./tailwind.generated.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Homepage } from "./pages/Homepage/Homepage";
+import { Help } from "./pages/Help/Help";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <div className="flex flex-col w-full h-full">
         <Switch>
+          <Route path="/help">
+            <Help />
+          </Route>
           <Route path="/">
             <Homepage />
           </Route>
