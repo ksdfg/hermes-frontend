@@ -1,7 +1,10 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
+import qrReducer from "../pages/Qr/QrSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    qr: qrReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
