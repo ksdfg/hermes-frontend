@@ -1,3 +1,3 @@
 export const Loader = () => {
-  return <img src={"/miscellaneous/loader.gif"} alt="Loading..." style={{ width: 512 }} />;
+  return <img src={"/miscellaneous/loader.gif"} alt="Loading..." style={{ width: 690 }} />;
 };
