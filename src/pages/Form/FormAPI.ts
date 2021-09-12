@@ -7,7 +7,7 @@ export const formSubmit = async (formData: FormRequest) => {
     form.append("file", formData.file);
     form.append("body", formData.body);
     return await instance.post("/send", form);
-  } catch (error) {
-    return Promise.reject(error);
+  } catch (error: any) {
+    return Promise.reject(error.response.data);
   }
 };

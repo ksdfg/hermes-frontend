@@ -36,7 +36,7 @@ export function Qr() {
 
   useEffect(() => {
     if (error) {
-      alert(error);
+      alert(error.message);
     }
   }, [error]);
 

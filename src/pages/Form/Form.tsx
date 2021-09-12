@@ -17,7 +17,7 @@ export function Form() {
     if (status === "success") {
       history.push("/");
     } else if (status === "failed" && error) {
-      alert(error);
+      alert(error.message);
     }
   }, [history, status, error]);
 
