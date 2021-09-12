@@ -9,6 +9,7 @@ import { Help } from "./pages/Help/Help";
 import { Qr } from "./pages/Qr/Qr";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import { Form } from "./pages/Form/Form";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +17,9 @@ ReactDOM.render(
       <Router>
         <div className="flex flex-col w-full h-full">
           <Switch>
+            <Route path="/form">
+              <Form />
+            </Route>
             <Route path="/help">
               <Help />
             </Route>

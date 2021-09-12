@@ -29,7 +29,7 @@ export function Qr() {
           dispatch(newSession());
         }
       } else {
-        history.push("/");
+        history.push("/form");
       }
     }
   }, 1000);
@@ -51,7 +51,7 @@ export function Qr() {
   return (
     <div className="flex flex-col gap-16 items-center justify-center w-full h-full">
       <img src={qr ?? ""} alt="QR code loading" />
-      <p className="text-4xl">Scan the QR code with your WhatsApp</p>
+      <p className="text-4xl text-red-400">Scan the QR code with your WhatsApp</p>
       <p className="text-2xl">QR code will change in {20 - retries} seconds</p>
     </div>
   );
