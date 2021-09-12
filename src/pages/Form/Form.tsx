@@ -15,7 +15,7 @@ export function Form() {
 
   useEffect(() => {
     if (status === "success") {
-      history.push("/");
+      history.push("/logs");
     } else if (status === "failed" && error) {
       alert(error.message);
     }

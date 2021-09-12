@@ -10,6 +10,7 @@ import { Qr } from "./pages/Qr/Qr";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 import { Form } from "./pages/Form/Form";
+import { Logs } from "./pages/Log/Log";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,9 @@ ReactDOM.render(
       <Router>
         <div className="flex flex-col w-full h-full">
           <Switch>
+            <Route path="/logs">
+              <Logs />
+            </Route>
             <Route path="/form">
               <Form />
             </Route>
