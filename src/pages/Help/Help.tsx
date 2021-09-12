@@ -50,9 +50,11 @@ export function Help() {
             Back
           </button>
         </Link>
-        <button className="bg-blue-600 hover:bg-blue-400 text-white text-2xl font-bold py-2 px-4 w-60 rounded">
-          Start
-        </button>
+        <Link to="/qr">
+          <button className="bg-blue-600 hover:bg-blue-400 text-white text-2xl font-bold py-2 px-4 w-60 rounded">
+            Start
+          </button>
+        </Link>
       </div>
     </div>
   );
