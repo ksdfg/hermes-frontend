@@ -1,10 +1,6 @@
 import { createAsyncThunk, createSlice, SerializedError } from "@reduxjs/toolkit";
 import { checkLoggedInAPI, newSessionAPI } from "./QrAPI";
 
-export interface checkLoggedInResponse {
-  loggedIn: boolean;
-}
-
 export interface QrState {
   code: string | null;
   loggedIn: boolean;
@@ -38,14 +34,20 @@ export const QrSlice = createSlice({
         state.code = null;
         state.error = null;
         state.status = "loading";
+
+        localStorage.clear();
       })
       .addCase(newSession.fulfilled, (state, action) => {
-        state.code = action.payload;
+        state.code = action.payload.qr;
         state.status = "idle";
+
+        localStorage.setItem("session", action.payload.session);
       })
       .addCase(newSession.rejected, (state, action) => {
         state.error = action.error;
         state.status = "failed";
+
+        localStorage.clear();
       });
 
     builder
