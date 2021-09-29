@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector, useInterval } from "../../app/hooks";
-import { useEffect } from "react";
-import { fetchLogs } from "./LogSlice";
+import { useEffect, useState } from "react";
+import { deleteSession, fetchLogs } from "./LogSlice";
 
 export function Logs() {
   const success = useAppSelector((state) => state.logs.success);
@@ -9,11 +9,20 @@ export function Logs() {
   const error = useAppSelector((state) => state.logs.error);
   const dispatch = useAppDispatch();
 
+  const [del, setDel] = useState<boolean>(false);
+
   useInterval(() => {
     if (processing) {
       dispatch(fetchLogs());
     }
   }, 1000);
+
+  useEffect(() => {
+    if (!processing && !del) {
+      setDel(true);
+      dispatch(deleteSession());
+    }
+  }, [processing, del, dispatch]);
 
   useEffect(() => {
     if (error) {

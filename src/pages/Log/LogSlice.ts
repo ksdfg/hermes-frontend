@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, SerializedError } from "@reduxjs/toolkit";
-import { logsAPI } from "./LogAPI";
+import { deleteSessionAPI, logsAPI } from "./LogAPI";
 
 export interface LogsResponse {
   processing: boolean;
@@ -22,6 +22,10 @@ export const fetchLogs = createAsyncThunk("logs/fetch", async () => {
   return await logsAPI();
 });
 
+export const deleteSession = createAsyncThunk("logs/delete", async () => {
+  return await deleteSessionAPI();
+});
+
 export const LogSlice = createSlice({
   name: "logs",
   initialState,
@@ -37,6 +41,14 @@ export const LogSlice = createSlice({
         if (action.payload.failure) state.failure = action.payload.failure;
       })
       .addCase(fetchLogs.rejected, (state, action) => {
+        state.error = action.error;
+      });
+
+    builder
+      .addCase(deleteSession.pending, (state) => {
+        state.error = null;
+      })
+      .addCase(deleteSession.rejected, (state, action) => {
         state.error = action.error;
       });
   },

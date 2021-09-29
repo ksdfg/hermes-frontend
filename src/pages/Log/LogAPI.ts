@@ -9,3 +9,11 @@ export const logsAPI = async (): Promise<LogsResponse> => {
     return Promise.reject(error);
   }
 };
+
+export const deleteSessionAPI = async () => {
+  try {
+    return await instance.delete("/");
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
